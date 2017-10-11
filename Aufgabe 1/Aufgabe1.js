@@ -7,6 +7,7 @@ Datum: 11.10.2017
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 window.addEventListener("load", init);
+//Funktion Canvas
 function init() {
     let canvas = document.getElementsByTagName("canvas")[0];
     console.log(canvas);
@@ -95,6 +96,71 @@ function init() {
     crc2.arc(480, 125, 10, 0, 2 * Math.PI);
     crc2.fillStyle = "#ffffff";
     crc2.fill();
+    //Schneemann
+    //K�rper
+    crc2.beginPath();
+    crc2.arc(700, 295, 10, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(700, 312, 15, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(700, 335, 20, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    //Nase
+    crc2.beginPath();
+    crc2.moveTo(700, 295);
+    crc2.lineTo(695, 300);
+    crc2.lineTo(700, 297);
+    crc2.closePath();
+    crc2.strokeStyle = "#ff8000";
+    crc2.stroke();
+    crc2.fillStyle = "#ff8000";
+    crc2.fill();
+    //Augen
+    crc2.beginPath();
+    crc2.arc(696, 291, 2, 0, 2 * Math.PI);
+    crc2.fillStyle = "#000000";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(704, 291, 2, 0, 2 * Math.PI);
+    crc2.fillStyle = "#000000";
+    crc2.fill();
+    //Kn�pfe
+    crc2.beginPath();
+    crc2.arc(700, 305, 2, 0, 2 * Math.PI);
+    crc2.fillStyle = "#804000";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(700, 310, 2, 0, 2 * Math.PI);
+    crc2.fillStyle = "#804000";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(700, 315, 2, 0, 2 * Math.PI);
+    crc2.fillStyle = "#804000";
+    crc2.fill();
+    //Arme
+    crc2.beginPath();
+    crc2.moveTo(685, 312);
+    crc2.lineTo(670, 310);
+    crc2.strokeStyle = "#804000";
+    crc2.stroke();
+    crc2.beginPath();
+    crc2.moveTo(715, 312);
+    crc2.lineTo(730, 310);
+    crc2.strokeStyle = "#804000";
+    crc2.stroke();
+    //Hut
+    crc2.beginPath();
+    crc2.moveTo(685, 285);
+    crc2.lineTo(715, 285);
+    crc2.strokeStyle = "#3a3a3a";
+    crc2.stroke();
+    crc2.fillStyle = "#3a3a3a";
+    crc2.fillRect(692, 270, 16, 15);
     //Baum1
     crc2.beginPath();
     crc2.moveTo(50, 550);
