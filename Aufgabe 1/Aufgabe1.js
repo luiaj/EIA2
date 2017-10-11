@@ -1,3 +1,11 @@
+/*
+Aufgabe: 1, Skipiste
+Name: Julia Kaiser
+Matrikel: 256580
+Datum: 11.10.2017
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
 window.addEventListener("load", init);
 function init() {
     let canvas = document.getElementsByTagName("canvas")[0];
@@ -48,6 +56,44 @@ function init() {
     crc2.beginPath();
     crc2.arc(70, 70, 40, 0, 2 * Math.PI);
     crc2.fillStyle = "#ffff02";
+    crc2.fill();
+    //Wolke1
+    crc2.beginPath();
+    crc2.arc(720, 70, 20, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(710, 80, 20, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(710, 60, 20, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(695, 55, 20, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(685, 75, 20, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    //Wolke2
+    crc2.beginPath();
+    crc2.arc(500, 120, 10, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(490, 130, 10, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(490, 115, 10, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(480, 125, 10, 0, 2 * Math.PI);
+    crc2.fillStyle = "#ffffff";
     crc2.fill();
     //Baum1
     crc2.beginPath();
