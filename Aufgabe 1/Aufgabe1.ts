@@ -69,6 +69,7 @@ function init(): void {
     crc2.fillStyle = "#ffff02";
     crc2.fill();
     
+    
 //Baum1
     
     crc2.beginPath();
