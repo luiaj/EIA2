@@ -8,9 +8,9 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 window.addEventListener("load", init);
 function init() {
-    let name = prompt("Hier Ihren Namen eintragen:");
+    let name = prompt("Wie heisst du?");
     if (name != null) {
-        alert("Guten Tag, " + name + "! :)");
+        alert("Hallihallo " + name + ", ich wuensche dir einen schoenen Tag!");
     }
 }
 //# sourceMappingURL=Aufgabe0.js.map
