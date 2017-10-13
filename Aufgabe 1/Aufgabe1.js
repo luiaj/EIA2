@@ -6,9 +6,9 @@ Datum: 11.10.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-window.addEventListener("load", init);
+window.addEventListener("load", ski);
 //Funktion Canvas
-function init() {
+function ski() {
     let canvas = document.getElementsByTagName("canvas")[0];
     console.log(canvas);
     let crc2 = canvas.getContext("2d");
@@ -18,9 +18,9 @@ function init() {
     crc2.fillRect(0, 0, 800, 600);
     //Gro�er Berg
     crc2.beginPath();
-    crc2.moveTo(0, 600);
-    crc2.lineTo(600, 600);
-    crc2.lineTo(300, 50);
+    crc2.moveTo(0, 800);
+    crc2.lineTo(500, 800);
+    crc2.lineTo(250, 80);
     crc2.closePath();
     crc2.strokeStyle = "#c2c2c2";
     crc2.stroke();
@@ -39,6 +39,36 @@ function init() {
     //Schneepiste
     crc2.fillStyle = "#dfdfdf";
     crc2.fillRect(0, 250, 800, 350);
+    //H�tte
+    //Fundament
+    crc2.fillStyle = "#ca6500";
+    crc2.fillRect(15, 230, 90, 50);
+    //Dach
+    crc2.beginPath();
+    crc2.moveTo(10, 230);
+    crc2.lineTo(110, 230);
+    crc2.lineTo(60, 200);
+    crc2.closePath();
+    crc2.strokeStyle = "#804000";
+    crc2.stroke();
+    crc2.fillStyle = "#804000";
+    crc2.fill();
+    //Fenster
+    crc2.fillStyle = "#a2ffff";
+    crc2.fillRect(25, 240, 20, 20);
+    crc2.beginPath();
+    crc2.moveTo(35, 240);
+    crc2.lineTo(35, 260);
+    crc2.strokeStyle = "#400000";
+    crc2.stroke();
+    crc2.beginPath();
+    crc2.moveTo(25, 250);
+    crc2.lineTo(45, 250);
+    crc2.strokeStyle = "#400000";
+    crc2.stroke();
+    //T�re
+    crc2.fillStyle = "#400000";
+    crc2.fillRect(65, 248, 20, 32);
     //Lift1
     crc2.beginPath();
     crc2.moveTo(800, 500);
