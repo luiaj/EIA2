@@ -17,7 +17,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 /* Desktop */
 
-@media screen and(min-width:64em) {
+@media screen and (min-width:64em) {
 	canvas{
 		width: 800px;
 		height: 600px;
