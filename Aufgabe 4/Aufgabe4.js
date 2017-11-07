@@ -138,7 +138,7 @@ var Aufgabe4;
         crc2.arc(704, 291, 2, 0, 2 * Math.PI);
         crc2.fillStyle = "#000000";
         crc2.fill();
-        //Kn�per
+        //Kn�pfe
         crc2.beginPath();
         crc2.arc(700, 305, 2, 0, 2 * Math.PI);
         crc2.fillStyle = "#804000";
@@ -203,7 +203,7 @@ var Aufgabe4;
         crc2.strokeStyle = "#804000";
         crc2.stroke();
         //Schneeflocken
-        drawSnowflakes(10, 10, 2, 0, 2 * Math.PI, "#ffffff");
+        drawSnowflakes(10, 10, 2);
         //Hintergrund speichern
         img = crc2.getImageData(0, 0, 800, 600);
         animate();
@@ -233,10 +233,10 @@ var Aufgabe4;
         crc2.fill();
     }
     //Funktion f�r Schneeflocken   
-    function drawSnowflakes(_x, _y, _radius, _winkel, _circle, _color) {
+    function drawSnowflakes(_x, _y, _radius) {
         crc2.beginPath();
-        crc2.arc(_x, _y, _radius, _winkel, _circle);
-        crc2.fillStyle = _color;
+        crc2.arc(_x, _y, _radius, 0, 2 * Math.PI);
+        crc2.fillStyle = "#ffffff";
         crc2.fill();
     }
     //Funktion f�r Animation   
@@ -332,22 +332,6 @@ var Aufgabe4;
         crc2.arc(_fahrer.x + 5, _fahrer.y - 35, 3, 0, 2 * Math.PI);
         crc2.fillStyle = "#ffffff";
         crc2.fill();
-        //            _fahrer.x += _fahrer.dx * 0.002;
-        //            _fahrer.y += _fahrer.dy * 0.002;
-        //            
-        //            crc2.fillStyle = _fahrer.color;
-        //            crc2.fillRect(_fahrer.x, _fahrer.y, 5, 10);
-        //
-        //            crc2.beginPath();
-        //            crc2.arc(_fahrer.x + 3, _fahrer.y - 5, 5, 0, 2 * Math.PI);
-        //            crc2.fillStyle = _fahrer.color;
-        //            crc2.fill();
-        //
-        //            crc2.beginPath();
-        //            crc2.moveTo(_fahrer.x - 10, _fahrer.y + 8);
-        //            crc2.lineTo(_fahrer.x + 15, _fahrer.y + 15);
-        //            crc2.strokeStyle = _fahrer.color;
-        //            crc2.stroke();
     }
 })(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=Aufgabe4.js.map
