@@ -28,14 +28,14 @@ var Aufgabe4;
         }
         for (let i = 0; i < 2; i++) {
             cloudX[i] = 0 + Math.random() * 800;
-            cloudY[i] = 0 + Math.random() * 250;
+            cloudY[i] = 0 + Math.random() * 200;
         }
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 3; i++) {
             fahrer[i] = {
                 x: 290,
-                y: 240,
-                dx: Math.random() * 8,
-                dy: Math.random() * 22,
+                y: 230,
+                dx: Math.random() * 8 + 5,
+                dy: Math.random() * 8 + 10,
                 color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
             };
         }
@@ -44,13 +44,18 @@ var Aufgabe4;
         crc2.fillRect(0, 0, 800, 600);
         //Gro�er Berg
         crc2.beginPath();
-        crc2.moveTo(0, 800);
-        crc2.lineTo(500, 800);
+        crc2.moveTo(-100, 500);
+        crc2.lineTo(600, 500);
         crc2.lineTo(250, 80);
         crc2.closePath();
         crc2.strokeStyle = "#c2c2c2";
         crc2.stroke();
         crc2.fillStyle = "#c2c2c2";
+        crc2.fill();
+        //H�hle gro�er Berg
+        crc2.beginPath();
+        crc2.arc(300, 250, 40, 0, 2 * Math.PI);
+        crc2.fillStyle = "#000000";
         crc2.fill();
         //Kleiner Berg
         crc2.beginPath();
@@ -260,8 +265,8 @@ var Aufgabe4;
             for (let i = 0; i < fahrer.length; i++) {
                 drawAndMoveSki(fahrer[i]);
                 if (fahrer[i].x > 800, fahrer[i].y > 650) {
-                    fahrer[i].x = 200;
-                    fahrer[i].y = 250;
+                    fahrer[i].x = 290;
+                    fahrer[i].y = 230;
                 }
             }
         }
@@ -294,17 +299,55 @@ var Aufgabe4;
     function drawAndMoveSki(_fahrer) {
         _fahrer.x += _fahrer.dx * 0.002;
         _fahrer.y += _fahrer.dy * 0.002;
-        crc2.fillStyle = _fahrer.color;
-        crc2.fillRect(_fahrer.x, _fahrer.y, 5, 10);
+        //Ski
         crc2.beginPath();
-        crc2.arc(_fahrer.x + 3, _fahrer.y - 5, 5, 0, 2 * Math.PI);
+        crc2.moveTo(_fahrer.x, _fahrer.y);
+        crc2.lineTo(_fahrer.x + 20, _fahrer.y + 10);
+        crc2.strokeStyle = "#400000";
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.moveTo(_fahrer.x, _fahrer.y);
+        crc2.lineTo(_fahrer.x + 15, _fahrer.y + 15);
+        crc2.strokeStyle = "#400000";
+        crc2.stroke();
+        //K�rper   
         crc2.fillStyle = _fahrer.color;
+        crc2.fillRect(_fahrer.x, _fahrer.y - 10, 10, 15);
+        //Kopf
+        crc2.beginPath();
+        crc2.arc(_fahrer.x + 5, _fahrer.y - 15, 7, 0, 2 * Math.PI);
+        crc2.fillStyle = "#ff9f9f";
+        crc2.fill();
+        // M�tze  
+        crc2.beginPath();
+        crc2.moveTo(_fahrer.x - 1, _fahrer.y - 20);
+        crc2.lineTo(_fahrer.x + 11, _fahrer.y - 20);
+        crc2.lineTo(_fahrer.x + 5, _fahrer.y - 35);
+        crc2.closePath();
+        crc2.strokeStyle = "#ff1313";
+        crc2.stroke();
+        crc2.fillStyle = "#ff1313";
         crc2.fill();
         crc2.beginPath();
-        crc2.moveTo(_fahrer.x - 10, _fahrer.y + 8);
-        crc2.lineTo(_fahrer.x + 15, _fahrer.y + 15);
-        crc2.strokeStyle = _fahrer.color;
-        crc2.stroke();
+        crc2.arc(_fahrer.x + 5, _fahrer.y - 35, 3, 0, 2 * Math.PI);
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+        //            _fahrer.x += _fahrer.dx * 0.002;
+        //            _fahrer.y += _fahrer.dy * 0.002;
+        //            
+        //            crc2.fillStyle = _fahrer.color;
+        //            crc2.fillRect(_fahrer.x, _fahrer.y, 5, 10);
+        //
+        //            crc2.beginPath();
+        //            crc2.arc(_fahrer.x + 3, _fahrer.y - 5, 5, 0, 2 * Math.PI);
+        //            crc2.fillStyle = _fahrer.color;
+        //            crc2.fill();
+        //
+        //            crc2.beginPath();
+        //            crc2.moveTo(_fahrer.x - 10, _fahrer.y + 8);
+        //            crc2.lineTo(_fahrer.x + 15, _fahrer.y + 15);
+        //            crc2.strokeStyle = _fahrer.color;
+        //            crc2.stroke();
     }
 })(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=Aufgabe4.js.map
