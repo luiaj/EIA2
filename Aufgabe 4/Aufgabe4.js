@@ -30,12 +30,12 @@ var Aufgabe4;
             cloudX[i] = 0 + Math.random() * 800;
             cloudY[i] = 0 + Math.random() * 250;
         }
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 6; i++) {
             fahrer[i] = {
-                x: 200,
-                y: 250,
-                dx: Math.random() * 18,
-                dy: Math.random() * 20,
+                x: 290,
+                y: 240,
+                dx: Math.random() * 8,
+                dy: Math.random() * 22,
                 color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
             };
         }
@@ -259,7 +259,7 @@ var Aufgabe4;
             //Skifahrer animieren    
             for (let i = 0; i < fahrer.length; i++) {
                 drawAndMoveSki(fahrer[i]);
-                if (fahrer[i].x > 800) {
+                if (fahrer[i].x > 800, fahrer[i].y > 650) {
                     fahrer[i].x = 200;
                     fahrer[i].y = 250;
                 }

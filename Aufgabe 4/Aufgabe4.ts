@@ -59,13 +59,13 @@ namespace Aufgabe4 {
 
         }
         
-        for (let i: number = 0; i < 7; i++) {
+        for (let i: number = 0; i < 6; i++) {
             
             fahrer[i] = {
-                x: 200,
-                y: 250,
-                dx: Math.random() * 18,
-                dy: Math.random() * 20,
+                x: 290,
+                y: 240,
+                dx:  Math.random() * 8,
+                dy: Math.random() * 22,
                 color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
                 
                 };
@@ -376,7 +376,7 @@ namespace Aufgabe4 {
                     
                     
 
-                    if (fahrer[i].x > 800) {
+                    if (fahrer[i].x > 800, fahrer[i].y > 650) {
                         fahrer[i].x = 200;
                         fahrer[i].y = 250;
                     }
