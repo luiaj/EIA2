@@ -90,6 +90,18 @@ namespace Aufgabe4 {
         crc2.fillStyle = "#c2c2c2";
         crc2.fill();
         
+        //Bergspitze
+        
+        crc2.beginPath();
+        crc2.moveTo(209, 127);
+        crc2.lineTo(310, 150);
+        crc2.lineTo(250, 80);
+        crc2.closePath();
+        crc2.strokeStyle = "#ffffff";
+        crc2.stroke();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+        
         //Höhle großer Berg
         
         crc2.beginPath();
@@ -108,6 +120,18 @@ namespace Aufgabe4 {
         crc2.strokeStyle = "#c2c2c2";
         crc2.stroke();
         crc2.fillStyle = "#c2c2c2";
+        crc2.fill();
+        
+        //Bergspitze
+        
+        crc2.beginPath();
+        crc2.moveTo(588, 147);
+        crc2.lineTo(612, 151);
+        crc2.lineTo(600, 120);
+        crc2.closePath();
+        crc2.strokeStyle = "#ffffff";
+        crc2.stroke();
+        crc2.fillStyle = "#ffffff";
         crc2.fill();
 
         //Schneepiste
