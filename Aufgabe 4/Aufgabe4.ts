@@ -74,7 +74,7 @@ namespace Aufgabe4 {
 
         //Hintergrund Himmel
 
-        crc2.fillStyle = "#a2a2ff";
+        crc2.fillStyle = "#96ceed";
         crc2.fillRect(0, 0, 800, 600);
 
 
@@ -112,7 +112,7 @@ namespace Aufgabe4 {
 
         //Schneepiste
 
-        crc2.fillStyle = "#dfdfdf";
+        crc2.fillStyle = "#f9f9f9";
         crc2.fillRect(0, 250, 800, 350);
 
         //Hütte

@@ -40,7 +40,7 @@ var Aufgabe4;
             };
         }
         //Hintergrund Himmel
-        crc2.fillStyle = "#a2a2ff";
+        crc2.fillStyle = "#96ceed";
         crc2.fillRect(0, 0, 800, 600);
         //Gro�er Berg
         crc2.beginPath();
@@ -68,7 +68,7 @@ var Aufgabe4;
         crc2.fillStyle = "#c2c2c2";
         crc2.fill();
         //Schneepiste
-        crc2.fillStyle = "#dfdfdf";
+        crc2.fillStyle = "#f9f9f9";
         crc2.fillRect(0, 250, 800, 350);
         //H�tte
         //Fundament
