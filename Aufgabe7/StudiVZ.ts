@@ -44,7 +44,7 @@ namespace StudiVZ {
     function saveData(_input: string): string {
         let splitted: string[] = _input.split(",");
 
-        if (parseInt(splitted[0]) == NaN) {
+        if (Number.isNaN(parseInt(splitted[0]))) {
             return "Matrikelnummer keine Nummer";
         }
         

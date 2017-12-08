@@ -31,7 +31,7 @@ var StudiVZ;
     }
     function saveData(_input) {
         let splitted = _input.split(",");
-        if (parseInt(splitted[0]) == NaN) {
+        if (Number.isNaN(parseInt(splitted[0]))) {
             return "Matrikelnummer keine Nummer";
         }
         var geschlecht = parseInt(splitted[4]) == 1; //(splitted[4] === "true");
