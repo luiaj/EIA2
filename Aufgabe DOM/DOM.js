@@ -10,22 +10,16 @@ nicht kopiert und auch nicht diktiert.
 var L07_DOM;
 (function (L07_DOM) {
     window.addEventListener("load", init);
-    window.addEventListener("keydown", keypress);
-    function keypress(_event) {
-        console.log(_event.keyCode);
-    }
     function init() {
         //Fenster zum eingeben der Daten
         let anzahl = prompt("Wie viele Quadrate moechtest du sehen?");
         let anzahlNumber = parseInt(anzahl);
         let breite = prompt("Wie breit sollen sie sein?");
-        let breiteNumber = parseInt(breite);
         let hoehe = prompt("Wie hoch sollen sie sein?");
-        let hoeheNumber = parseInt(hoehe);
         //Eingegebene Zahl f�r Anzahl muss zwischen 10 und 100 liegen
         if (anzahlNumber >= 10 && anzahlNumber <= 100) {
             for (let i = 0; i < anzahlNumber; i++) {
-                drawSquare(Math.random() * 800, Math.random() * 600, "hsl(" + Math.random() * 360 + ", 100%, 50%)", breiteNumber, hoeheNumber);
+                drawSquare(Math.random() * 800, Math.random() * 600, "hsl(" + Math.random() * 360 + ", 100%, 50%)", breite, hoehe);
             }
         }
         else {
@@ -35,8 +29,8 @@ var L07_DOM;
     }
     function drawSquare(_x, _y, _farbe, _breite, _hoehe) {
         let square = document.createElement("div");
-        square.style.width = _hoehe.toString();
-        square.style.height = _breite.toString();
+        square.style.width = _hoehe;
+        square.style.height = _breite;
         square.style.backgroundColor = _farbe;
         square.style.marginLeft = _x.toString();
         square.style.marginTop = _y.toString();

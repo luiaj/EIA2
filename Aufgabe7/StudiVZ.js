@@ -44,18 +44,18 @@ var StudiVZ;
             Kommentar: splitted[5]
         };
         students.push(student);
+        console.log(students[0], students[1]);
         return "Eingegebene Daten: " + "\nMatrikelnummer: " + student.Matrikelnummer + "\nName: " + student.Name + "\nVorname: " + student.Vorname + "\nAlter: " + student.Alter + "\nGeschlecht: " + student.Geschlecht + "\nKommentar: " + student.Kommentar;
     }
     function queryData(_matrikel) {
         for (let i = 0; i < students.length; i++) {
-            if (students[i].Matrikelnummer == _matrikel) {
+            if (_matrikel == students[i].Matrikelnummer) {
                 return "Student: " + "\nMatrikelnummer: " + students[i].Matrikelnummer + "\nName: " + students[i].Name + "\nVorname: " + students[i].Vorname + "\nAlter: " + students[i].Alter + "\nGeschlecht: " + students[i].Geschlecht + "\nKommentar: " + students[i].Kommentar;
             }
             else {
                 return "Matrikelnummer nicht gespeichert";
             }
         }
-        return;
     }
 })(StudiVZ || (StudiVZ = {}));
 //# sourceMappingURL=StudiVZ.js.map
