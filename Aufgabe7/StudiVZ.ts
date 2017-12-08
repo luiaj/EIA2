@@ -77,9 +77,7 @@ namespace StudiVZ {
                 return "Student: " + "\nMatrikelnummer: " + students[i].Matrikelnummer + "\nName: " + students[i].Name + "\nVorname: " + students[i].Vorname + "\nAlter: " + students[i].Alter + "\nGeschlecht: " + students[i].Geschlecht + "\nKommentar: " + students[i].Kommentar;
             }
 
-            else {
-                return "Matrikelnummer nicht gespeichert";
-            }
+            
         }
     }
 }
