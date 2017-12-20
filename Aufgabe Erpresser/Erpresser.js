@@ -11,6 +11,8 @@ var L9_Erpresser;
 (function (L9_Erpresser) {
     window.addEventListener("load", init);
     let currentLetter;
+    document.addEventListener("keydown", keyboardPress);
+    //document.addEventListener("keypressed", handleAlt); 
     function init() {
         //Array f�r das Alphabet
         let buchstaben = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -57,6 +59,112 @@ var L9_Erpresser;
             }
         }
     }
+    function keyboardPress(event) {
+        if (event.key == "a" || event.key == "A") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "b" || event.key == "B") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "c" || event.key == "C") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "d" || event.key == "D") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "e" || event.key == "E") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "f" || event.key == "F") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "g" || event.key == "G") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "h" || event.key == "H") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "i" || event.key == "I") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "j" || event.key == "J") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "k" || event.key == "K") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "l" || event.key == "L") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "m" || event.key == "M") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "n" || event.key == "N") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "o" || event.key == "O") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "p" || event.key == "P") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "q" || event.key == "Q") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "r" || event.key == "R") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "s" || event.key == "S") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "t" || event.key == "T") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "u" || event.key == "U") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "v" || event.key == "V") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "w" || event.key == "W") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "x" || event.key == "X") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "y" || event.key == "Y") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "z" || event.key == "Z") {
+            currentLetter = event.key;
+            putLetter;
+        }
+    }
     function putLetter(_event) {
         let box = document.createElement("div");
         box.style.width = "30px";
@@ -70,8 +178,18 @@ var L9_Erpresser;
         box.style.position = "absolute";
         box.style.left = _event.pageX + "px";
         box.style.top = _event.pageY + "px";
+        box.addEventListener("click", deleteLetter);
         document.body.appendChild(box);
         let clicking = _event.target;
+    }
+    function handleAlt(event) {
+        if (event.keyCode == 18) {
+            deleteLetter;
+        }
+    }
+    function deleteLetter(_event) {
+        let d = _event.target;
+        document.body.removeChild(d);
     }
 })(L9_Erpresser || (L9_Erpresser = {}));
 //# sourceMappingURL=Erpresser.js.map
