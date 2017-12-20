@@ -12,7 +12,6 @@ var L9_Erpresser;
     window.addEventListener("load", init);
     let currentLetter;
     document.addEventListener("keydown", keyboardPress);
-    //document.addEventListener("keypressed", handleAlt); 
     function init() {
         //Array f�r das Alphabet
         let buchstaben = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -182,14 +181,14 @@ var L9_Erpresser;
         document.body.appendChild(box);
         let clicking = _event.target;
     }
-    function handleAlt(event) {
-        if (event.keyCode == 18) {
-            deleteLetter;
-        }
-    }
     function deleteLetter(_event) {
-        let d = _event.target;
-        document.body.removeChild(d);
+        if (_event.altKey == false) {
+            return;
+        }
+        if (_event.altKey == true) {
+            let d = _event.target;
+            document.body.removeChild(d);
+        }
     }
 })(L9_Erpresser || (L9_Erpresser = {}));
 //# sourceMappingURL=Erpresser.js.map
