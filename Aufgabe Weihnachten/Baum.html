@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Weihnachtsbaum-Konfigurator</title>
+<link rel="stylesheet" href="Baum.css" type="text/css" media="screen" />
+<script src="Baum.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<!-- -->
+	<fieldset id="baum">
+		<legend>Baumgroesse</legend>
+
+	</fieldset>
+	<!-- -->
+	<fieldset id="warenkorb">
+		<legend> Warenkorb </legend>
+		<hr />
+	</fieldset>
+	<!-- -->
+	<fieldset id="halterung">
+		<legend>Halterung</legend>
+
+	</fieldset>
+	<!-- -->
+	<fieldset id="checkbox">
+		<legend> Schmuck </legend>
+		
+	</fieldset>
+	<!-- -->
+	<fieldset id="checkboxkerze">
+		<legend> Kerzen </legend>
+		
+	</fieldset>
+	<!-- -->
+	<fieldset id="text">
+		<legend> Adresse </legend>
+		Vorname, Name <input type="text" name="Text"
+			placeholder="hier eingeben" required />
+		<hr />
+		Straße, Hausnummer <input type="text" name="Text"
+			placeholder="hier eingeben" required />
+		<hr />
+		PLZ, Ort <input type="text" name="Pattern" pattern="[0-9]{3}"
+			placeholder="use RegEx" />
+		<hr />
+		Mail <input type="email" name="Mail" placeholder="E-Mail angeben" />
+		<hr />
+		Kommentar
+		<textarea name="Area" cols="30" rows="3"
+			placeholder="hier Kommentar eingeben"></textarea>
+	</fieldset>
+	<!-- -->
+	<fieldset id="send">
+		<legend> Lieferoptionen </legend>
+		Lieferoptionen <select name="Liefern" id="liefern">
+			<option value="option1">Express</option>
+			<option value="option2">Morning Express</option>
+			<option value="option3">Standart</option>
+		</select>
+		<hr />
+		<button name="Button" type="button">Bestellung überprüfen</button>
+	</fieldset>
+	<!-- -->
+</body>
+</html>
