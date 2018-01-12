@@ -66,6 +66,7 @@ var WeihnachtsbaumKonfigurator;
             let label = document.createElement("label");
             label.htmlFor = baeume[i].name;
             label.innerText = baeume[i].name;
+            radioButton.addEventListener("change", handleChanges);
             baumFieldS.appendChild(radioButton);
             baumFieldS.appendChild(label);
         }

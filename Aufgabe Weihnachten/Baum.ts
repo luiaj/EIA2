@@ -87,6 +87,7 @@ namespace WeihnachtsbaumKonfigurator {
             label.htmlFor = baeume[i].name;
             label.innerText = baeume[i].name;
 
+            radioButton.addEventListener("change", handleChanges);
             baumFieldS.appendChild(radioButton);
             baumFieldS.appendChild(label);
         }
@@ -185,6 +186,7 @@ namespace WeihnachtsbaumKonfigurator {
     function handleChanges(_event: Event): void {
         
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        
         let anzahlNumber: number = parseInt(target.value); 
         let preisArtikel: number[] = products;    
         console.log("Preis fuer  betraegt: " + (anzahlNumber * preisArtikel[3]));
