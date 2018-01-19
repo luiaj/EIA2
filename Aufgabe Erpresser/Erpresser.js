@@ -179,7 +179,6 @@ var L9_Erpresser;
         box.style.top = _event.pageY + "px";
         box.addEventListener("click", deleteLetter);
         document.body.appendChild(box);
-        let clicking = _event.target;
     }
     function deleteLetter(_event) {
         if (_event.altKey == false) {

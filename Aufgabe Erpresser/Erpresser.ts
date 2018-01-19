@@ -237,9 +237,7 @@ namespace L9_Erpresser {
         box.addEventListener("click", deleteLetter);
 
         document.body.appendChild(box);
-
-
-        let clicking: HTMLDivElement = <HTMLDivElement>_event.target;
+      
     }
 
     
