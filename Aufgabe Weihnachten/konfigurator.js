@@ -1,0 +1,242 @@
+//<!-- Name: Julia Kaiser
+//     Matrikel: 256580
+//     Datum: 17.01.2017
+//     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
+//     Er wurde nicht kopiert und nicht diktiert.-->
+var Weihnachtsbaumkonfigurator;
+(function (Weihnachtsbaumkonfigurator) {
+    window.addEventListener("load", init);
+    //AuswahlBoxen
+    let baumtyp = document.createElement("select");
+    let halterungtyp = document.createElement("select"); //Selekt Boxen erstellen
+    let lieferopttyp = document.createElement("select");
+    var korb = document.createElement("div"); //Warenkorb Div erstellen
+    //Persönlich
+    let persName = document.createElement("input");
+    let persVorname = document.createElement("input");
+    let persMail = document.createElement("input"); //Texteingabefelder erstellen
+    let persAdresse = document.createElement("input");
+    let persPlz = document.createElement("input");
+    //Button
+    let prufen = document.createElement("div");
+    //All die erstellen Elemente werden später im Code mit Eigenschaften ausgestattet und ans DOM gehängt
+    var gesamtpreis = 0; //Festlegen einer Gesamtpreis Variable, damit diese überall im Dokument aufrufbar ist
+    function init() {
+        //Warenkorb Definieren und Anhängen
+        let h2 = document.createElement("h2"); //Warenkorb überschrift
+        h2.innerText = "Warenkorb"; //Text der überschrift
+        h2.style.position = "absolute"; //CSS Gestaltung
+        h2.style.right = "390px";
+        h2.style.top = "0px";
+        h2.style.zIndex = "99";
+        document.getElementById("korbid").appendChild(h2); //Überschrift an div mit id korbid ins DOM hinzufügen
+        korb.style.display = "inline-block"; //Warenkorb Stylen
+        korb.style.position = "absolute";
+        korb.style.right = "10px";
+        korb.style.top = "10px";
+        korb.style.width = "500px";
+        korb.style.height = "500px";
+        korb.style.backgroundColor = "#c8ce86";
+        korb.style.paddingTop = "40px";
+        korb.style.paddingLeft = "10px";
+        document.getElementById("korbid").appendChild(korb); //Warenkorb (korb) an DOM anhängen
+        //Baum Definieren und Anhängen        
+        baumtyp.addEventListener("change", AuswahlAuslesen); //oben erstellten baumtyp vararbeiten
+        document.getElementById("baumtyp").appendChild(baumtyp);
+        for (let i = 0; i < Weihnachtsbaumkonfigurator.baumdaten.length; i++) {
+            let option = document.createElement("option");
+            option.innerText = Weihnachtsbaumkonfigurator.baumdaten[i].name;
+            baumtyp.id = Weihnachtsbaumkonfigurator.baumdaten[i].element; //Typ bzw ID Des Elements zuweisen, siehe Daten.ts; Wird später im Warenkorb gebraucht um zu prüfen ob Objekt schon vorhanden ist
+            baumtyp.appendChild(option);
+        }
+        //Halterungen Selektor          
+        halterungtyp.addEventListener("change", AuswahlAuslesen);
+        document.getElementById("halterung").appendChild(halterungtyp);
+        for (let i = 0; i < Weihnachtsbaumkonfigurator.halterungdaten.length; i++) {
+            let option = document.createElement("option");
+            option.innerText = Weihnachtsbaumkonfigurator.halterungdaten[i].name;
+            halterungtyp.id = Weihnachtsbaumkonfigurator.halterungdaten[i].element; //Typ bzw ID Des Elements zuweisen, siehe Daten.ts
+            halterungtyp.appendChild(option);
+        }
+        //Kugel Selektor       
+        for (let i = 0; i < Weihnachtsbaumkonfigurator.kugeldaten.length; i++) {
+            let kugeltyp = document.createElement("input");
+            kugeltyp.type = "checkbox"; //Macht es zur Checkbox
+            kugeltyp.id = Weihnachtsbaumkonfigurator.kugeldaten[i].element;
+            kugeltyp.addEventListener("change", function () {
+                ChkKugelnAuslesen(kugeltyp, "1"); //Werte übergeben; in kugeltyp ist alles enthalten
+            });
+            document.getElementById("kugeln").appendChild(kugeltyp);
+            //Labels hinzufügen
+            let kugellabel = document.createElement("label");
+            kugellabel.innerText = Weihnachtsbaumkonfigurator.kugeldaten[i].name;
+            document.getElementById("kugeln").appendChild(kugellabel);
+            //Anzahl Selektor
+            let kugelanz = document.createElement("input");
+            kugelanz.type = "number"; //Macht es zum NummerHochZählFeld
+            kugelanz.step = "1";
+            kugelanz.min = "0";
+            kugelanz.value = "1";
+            kugelanz.style.marginRight = "1.5em";
+            kugelanz.addEventListener("change", function () {
+                kugeltyp.checked = true; //Chekbox Anhaken wenn wert ge�ndert wird
+                ChkKugelnAuslesen(kugeltyp, kugelanz.value);
+            });
+            document.getElementById("kugeln").appendChild(kugelanz);
+        }
+        //Kerzen Selektor       
+        for (let i = 0; i < Weihnachtsbaumkonfigurator.kerzendaten.length; i++) {
+            let kerzetyp = document.createElement("input");
+            kerzetyp.type = "checkbox";
+            kerzetyp.id = Weihnachtsbaumkonfigurator.kerzendaten[i].element;
+            kerzetyp.addEventListener("change", function () {
+                ChkKerzenAuslesen(kerzetyp, "1");
+            });
+            document.getElementById("kerzen").appendChild(kerzetyp);
+            //Label Hinzufügen
+            let kerzelabel = document.createElement("label");
+            kerzelabel.innerText = Weihnachtsbaumkonfigurator.kerzendaten[i].name;
+            document.getElementById("kerzen").appendChild(kerzelabel);
+            //Anzahl
+            let kerzenanz = document.createElement("input");
+            kerzenanz.type = "number";
+            kerzenanz.step = "1";
+            kerzenanz.min = "0";
+            kerzenanz.value = "1";
+            kerzenanz.style.marginRight = "1.5em";
+            kerzenanz.addEventListener("change", function () {
+                kerzetyp.checked = true; //Chekbox Anhaken wenn wert ge�ndert wird
+                ChkKerzenAuslesen(kerzetyp, kerzenanz.value);
+            });
+            document.getElementById("kerzen").appendChild(kerzenanz);
+        }
+        //Lieferoption Selektor       
+        lieferopttyp.addEventListener("change", AuswahlAuslesen);
+        document.getElementById("lieferoption").appendChild(lieferopttyp);
+        for (let i = 0; i < Weihnachtsbaumkonfigurator.lieferoptionen.length; i++) {
+            let option = document.createElement("option");
+            option.innerText = Weihnachtsbaumkonfigurator.lieferoptionen[i].name;
+            lieferopttyp.id = Weihnachtsbaumkonfigurator.lieferoptionen[i].element;
+            lieferopttyp.appendChild(option);
+        }
+        //Persönliche Daten Eingeben
+        persName.type = "text";
+        persName.placeholder = "Name";
+        persName.required = true;
+        persName.style.marginRight = "1em";
+        document.getElementById("persdaten").appendChild(persName);
+        persVorname.type = "text";
+        persVorname.placeholder = "Vorname";
+        persVorname.required = true;
+        persVorname.style.marginRight = "1em";
+        document.getElementById("persdaten").appendChild(persVorname);
+        persMail.type = "email"; //Um nutzung von @ vorauszusetzen
+        persMail.placeholder = "Email, bitte @ nicht vergessen";
+        persMail.required = true;
+        persMail.style.marginRight = "1em";
+        document.getElementById("persdaten").appendChild(persMail);
+        persAdresse.type = "text";
+        persAdresse.placeholder = "Adresse";
+        persAdresse.required = true;
+        persAdresse.style.marginRight = "1em";
+        document.getElementById("persdaten").appendChild(persAdresse);
+        persPlz.type = "text";
+        persPlz.placeholder = "PLZ";
+        persPlz.required = true;
+        document.getElementById("persdaten").appendChild(persPlz);
+        //Button generieren
+        let button = document.createElement("button");
+        button.innerText = "Bestellung Prüfen";
+        button.addEventListener("click", PrufeDaten);
+        button.style.marginTop = "10px";
+        document.getElementById("prufenbutton").appendChild(button);
+    }
+    function ChkKugelnAuslesen(chkElement, anzahl) {
+        for (let i = 0; i < Weihnachtsbaumkonfigurator.kugeldaten.length; i++) {
+            if (Weihnachtsbaumkonfigurator.kugeldaten[i].element == chkElement.id) {
+                Warenkorb(chkElement.id, Weihnachtsbaumkonfigurator.kugeldaten[i].name, Weihnachtsbaumkonfigurator.kugeldaten[i].preis, parseInt(anzahl), chkElement.checked);
+            }
+        }
+    }
+    function ChkKerzenAuslesen(chkElement, anzahl) {
+        for (let i = 0; i < Weihnachtsbaumkonfigurator.kerzendaten.length; i++) {
+            if (Weihnachtsbaumkonfigurator.kerzendaten[i].element == chkElement.id) {
+                Warenkorb(chkElement.id, Weihnachtsbaumkonfigurator.kerzendaten[i].name, Weihnachtsbaumkonfigurator.kerzendaten[i].preis, parseInt(anzahl), chkElement.checked);
+            }
+        }
+    }
+    function AuswahlAuslesen() {
+        var baumname = baumtyp.value; //baumtyp.value == ausgewählter Wert im DropDown
+        if (baumname != "") {
+            ZuWarenkorb(Weihnachtsbaumkonfigurator.baumdaten, true, baumname); //true --> element ist ausgewählt
+        }
+        else {
+            ZuWarenkorb(Weihnachtsbaumkonfigurator.baumdaten, false, baumname); //false --> Element wurde abgewählt
+        }
+        var halterungname = halterungtyp.value;
+        if (halterungname != "") {
+            ZuWarenkorb(Weihnachtsbaumkonfigurator.halterungdaten, true, halterungname);
+        }
+        else {
+            ZuWarenkorb(Weihnachtsbaumkonfigurator.halterungdaten, false, halterungname);
+        }
+        var lieferant = lieferopttyp.value;
+        if (lieferant != "") {
+            ZuWarenkorb(Weihnachtsbaumkonfigurator.lieferoptionen, true, lieferant);
+        }
+    }
+    //Wird von DropDown genutzt; Sucht nach dem Preis
+    function ZuWarenkorb(daten, ischeckt, elementname) {
+        for (let i = 0; i < daten.length; i++) {
+            if (daten[i].name == elementname) {
+                Warenkorb(daten[i].element, elementname, daten[i].preis, 1, ischeckt); //1 --> da nur ein Element ausgewählt werden kann
+            }
+        }
+    }
+    function Warenkorb(elementId, value, preis, anzahl, selected) {
+        var preisElement; //Preis von anzahl mal Element berechnen
+        preisElement = anzahl * preis;
+        //Wird erst bei zweitem Durchgang ausgef�hrt, zu Beginn keine Elemente in Korb vorhanden
+        for (let i = 0; i < korb.getElementsByTagName("p").length; i++) {
+            if (korb.getElementsByTagName("p")[i].id == elementId) {
+                var innerPreis = korb.getElementsByTagName("p")[i].innerText.split("=")[1]; //Preis extrahieren
+                korb.getElementsByTagName("p")[i].remove(); //Wenn vorhanden Element löschen
+                gesamtpreis = gesamtpreis - parseInt(innerPreis); //Gesamtpreis bereinigen
+            }
+            //Gesamtpreis p entfernen um später aktualisiert zurück einzufügen
+            if (korb.getElementsByTagName("p")[i].id == "gesamtpreisid") {
+                korb.getElementsByTagName("p")[i].remove();
+            }
+        }
+        if (selected) {
+            var p = document.createElement("p");
+            p.id = elementId;
+            p.innerText = value + "  = " + preisElement + "€";
+            gesamtpreis = gesamtpreis + preisElement; //Gesamtpreis erhöhen
+            korb.appendChild(p);
+        }
+        //Gesamtpreis wieder hinzufügen
+        var pGesamt = document.createElement("p");
+        pGesamt.id = "gesamtpreisid";
+        pGesamt.innerText = "Gesamtpreis =  " + gesamtpreis + "€";
+        pGesamt.style.position = "absolute";
+        pGesamt.style.bottom = "0";
+        pGesamt.style.paddingTop = "10px";
+        pGesamt.style.borderTop = "2px solid grey";
+        korb.appendChild(pGesamt);
+    }
+    function PrufeDaten() {
+        prufen.innerText = "";
+        if (persName.checkValidity() == false || persVorname.checkValidity() == false || persMail.checkValidity() == false || persPlz.checkValidity() == false || persAdresse.checkValidity() == false) {
+            prufen.innerText = "Deine Eingabe war leider fehlerhaft! Überprüfe sie noch einmal.";
+            prufen.style.color = "red";
+            document.body.appendChild(prufen);
+        }
+        else {
+            prufen.innerText = "Deine Bestellung wurde erfolgreich verifiziert!";
+            prufen.style.color = "green";
+            document.body.appendChild(prufen);
+        }
+    }
+})(Weihnachtsbaumkonfigurator || (Weihnachtsbaumkonfigurator = {}));
+//# sourceMappingURL=konfigurator.js.map
