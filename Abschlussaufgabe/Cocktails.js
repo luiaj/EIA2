@@ -195,7 +195,7 @@ var Abschluss;
         for (let i = 0; i < nStars; i++) {
             let x = 220 + Math.random() * 270;
             let y = 0 + Math.random() * 80;
-            let s = new Abschluss.Sternchen(x, y, "#555555");
+            let s = new Abschluss.SternchenInfo(x, y, "#555555");
             stars.push(s);
         }
         //Hintergrund speichern

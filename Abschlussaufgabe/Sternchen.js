@@ -9,7 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var Abschluss;
 (function (Abschluss) {
-    class Sternchen extends Abschluss.DrinkArray {
+    class SternchenInfo extends Abschluss.DrinkArray {
         constructor(_x, _y, _color) {
             super(_x, _y, _color);
         }
@@ -38,6 +38,6 @@ var Abschluss;
             Abschluss.crc2.fill();
         }
     }
-    Abschluss.Sternchen = Sternchen;
+    Abschluss.SternchenInfo = SternchenInfo;
 })(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=sternchen.js.map

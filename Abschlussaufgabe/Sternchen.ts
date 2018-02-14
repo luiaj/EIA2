@@ -10,7 +10,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 namespace Abschluss {
 
-    export class Sternchen extends DrinkArray {
+    export class SternchenInfo extends DrinkArray {
 
         constructor(_x: number, _y: number, _color: string) {
             super(_x, _y, _color);

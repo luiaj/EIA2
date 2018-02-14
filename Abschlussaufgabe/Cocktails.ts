@@ -269,7 +269,7 @@ namespace Abschluss {
         for (let i: number = 0; i < nStars; i++) {
             let x: number = 220 + Math.random() * 270;
             let y: number = 0 + Math.random() * 80;
-            let s: Sternchen = new Sternchen(x, y, "#555555");
+            let s: SternchenInfo = new SternchenInfo(x, y, "#555555");
             stars.push(s);
         }
         
