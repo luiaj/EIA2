@@ -2,7 +2,7 @@
 Aufgabe: Abschussarbeit
 Name: Julia Kaiser
 Matrikel: 256580
-Datum: 13.02.2018
+Datum: 14.02.2018
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
@@ -13,7 +13,10 @@ var Abschluss;
     let currentDrink;
     let currentGlass;
     let mixer;
+    let nStars = 30;
+    let img;
     let drinks = [];
+    let stars = [];
     let nAlc = 1;
     let nNonAlc = 1;
     //Funktion f�r Canvas
@@ -100,7 +103,7 @@ var Abschluss;
         button.addEventListener("click", handleClick);
         document.body.appendChild(button);
     }
-    //Klick-Events
+    //Klick-Evens
     function handleClickDrinks(_event) {
         let click = _event.target;
         click.style.backgroundColor = "#f53d82";
@@ -128,32 +131,85 @@ var Abschluss;
         click.style.backgroundColor = "#c10061";
         mixer = click.id;
         if (currentDrink == "Gin" && currentGlass == "Cola") {
+            drawMixedCocktail("Gin-Cola");
             alert("Gin mit Cola... Ob das schmeckt?");
         }
         else if (currentDrink == "Gin" && currentGlass == "Fanta") {
+            drawMixedCocktail("Gin-Fanta");
             alert("Gin mit Fanta... Ob das schmeckt?");
         }
         else if (currentDrink == "Gin" && currentGlass == "Tonic") {
+            drawMixedCocktail("Gin-Tonic");
             alert("Du hast einen Gin Tonic gemacht!");
         }
         else if (currentDrink == "Vodka" && currentGlass == "Cola") {
+            drawMixedCocktail("Vodka-Cola");
             alert("Vodka mit Cola... Dann kann die Party ja losgehen!");
         }
         else if (currentDrink == "Vodka" && currentGlass == "Fanta") {
+            drawMixedCocktail("Vodka-Fanta");
             alert("Vodka mit Fanta... Na dann Prost!");
         }
         else if (currentDrink == "Vodka" && currentGlass == "Tonic") {
+            drawMixedCocktail("Vodka-Tonic");
             alert("Vodka mit Tonic? Sehr exotisch!");
         }
         else if (currentDrink == "Rum" && currentGlass == "Cola") {
+            drawMixedCocktail("Rum-Cola");
             alert("Du hast Rum-Cola gemacht! Ein Klassiker.");
         }
         else if (currentDrink == "Rum" && currentGlass == "Fanta") {
+            drawMixedCocktail("Rum-Fanta");
             alert("Rum mit Fanta... Ob das schmeckt?");
         }
         else if (currentDrink == "Rum" && currentGlass == "Tonic") {
+            drawMixedCocktail("Rum-Tonic");
             alert("Rum und Tonic? Bist du dir da sicher?");
         }
+    }
+    function drawMixedCocktail(_message) {
+        Abschluss.crc2.save();
+        Abschluss.crc2.fillStyle = "#147852";
+        Abschluss.crc2.fillRect(0, 0, 800, 600);
+        let bar = document.createElement("div");
+        bar.style.backgroundColor = "#880044";
+        bar.id = "Bar";
+        bar.innerText = _message;
+        document.body.appendChild(bar);
+        let x = 300;
+        let y = 260;
+        Abschluss.crc2.beginPath();
+        Abschluss.crc2.moveTo(x, y);
+        Abschluss.crc2.lineTo(x + 120, y);
+        Abschluss.crc2.lineTo(x + 60, y);
+        Abschluss.crc2.lineTo(x + 60, y - 120);
+        Abschluss.crc2.lineTo(x + 200, y - 180);
+        Abschluss.crc2.lineTo(x - 80, y - 180);
+        Abschluss.crc2.lineTo(x + 60, y - 120);
+        Abschluss.crc2.lineTo(x + 60, y);
+        Abschluss.crc2.closePath();
+        Abschluss.crc2.strokeStyle = "grey";
+        Abschluss.crc2.stroke();
+        Abschluss.crc2.fillStyle = "grey";
+        Abschluss.crc2.fill();
+        for (let i = 0; i < nStars; i++) {
+            let x = 220 + Math.random() * 270;
+            let y = 0 + Math.random() * 80;
+            let s = new Abschluss.Sternchen(x, y, "#555555");
+            stars.push(s);
+        }
+        //Hintergrund speichern
+        img = Abschluss.crc2.getImageData(0, 0, 800, 600);
+        animate();
+    }
+    function animate() {
+        Abschluss.crc2.clearRect(0, 0, 800, 600);
+        Abschluss.crc2.putImageData(img, 0, 0);
+        for (let i = 0; i < stars.length; i++) {
+            let s = stars[i];
+            s.update();
+        }
+        window.setTimeout(animate, 20);
     }
 })(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=Cocktails.js.map
