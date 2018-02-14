@@ -133,6 +133,7 @@ var Abschluss;
         if (currentDrink == "Gin" && currentGlass == "Cola") {
             drawMixedCocktail("Gin-Cola");
             alert("Gin mit Cola... Ob das schmeckt?");
+            animate();
         }
         else if (currentDrink == "Gin" && currentGlass == "Fanta") {
             drawMixedCocktail("Gin-Fanta");
