@@ -1,5 +1,5 @@
 /*
-Aufgabe: Abschlussaufgabe
+Aufgabe: Abschlussarbeit
 Name: Julia Kaiser
 Matrikel: 256580
 Datum: 14.02.2018
@@ -40,4 +40,4 @@ var Abschluss;
     }
     Abschluss.SternchenInfo = SternchenInfo;
 })(Abschluss || (Abschluss = {}));
-//# sourceMappingURL=sternchen.js.map
+//# sourceMappingURL=Sternchen.js.map

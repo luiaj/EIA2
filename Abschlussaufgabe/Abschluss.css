@@ -1,5 +1,5 @@
 /*
-Aufgabe: Abschussarbeit
+Aufgabe: Abschlussarbeit
 Name: Julia Kaiser
 Matrikel: 256580
 Datum: 14.02.2018
@@ -116,6 +116,21 @@ canvas {
 	top: 20vw;
 	left: 5vw;
 	width: 50vw;
+	height: 25vw;
+	float: left;
+}
+
+#Back {
+	position: absolute;
+	font-family: 'Nanum Myeongjo', serif;
+	color: white;
+	font-size: 2vw;
+	font-weight: bold;
+	text-align: center;
+	line-height: 17vw;
+	top: 3vw;
+	left: 20vw;
+	width: 5vw;
 	height: 25vw;
 	float: left;
 }

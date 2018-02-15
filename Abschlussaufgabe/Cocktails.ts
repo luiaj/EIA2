@@ -1,5 +1,5 @@
 /*
-Aufgabe: Abschussarbeit
+Aufgabe: Abschlussarbeit
 Name: Julia Kaiser
 Matrikel: 256580
 Datum: 14.02.2018
@@ -15,6 +15,7 @@ namespace Abschluss {
     let currentDrink: string;
     let currentGlass: string;
     let mixer: string;
+    let zurueck: string;
     let nStars: number = 30;
     let img: ImageData;
 
@@ -147,8 +148,8 @@ namespace Abschluss {
 
 
     //Klick-Evens
- 
-   function handleClickDrinks(_event: MouseEvent): void {
+
+    function handleClickDrinks(_event: MouseEvent): void {
         let click: HTMLDivElement = <HTMLDivElement>_event.target;
         click.style.backgroundColor = "#f53d82";
 
@@ -188,9 +189,9 @@ namespace Abschluss {
         mixer = click.id;
 
         if (currentDrink == "Gin" && currentGlass == "Cola") {
-            drawMixedCocktail("Gin-Cola");  
+            drawMixedCocktail("Gin-Cola");
             alert("Gin mit Cola... Ob das schmeckt?");
-            
+
         }
 
         else if (currentDrink == "Gin" && currentGlass == "Fanta") {
@@ -265,32 +266,66 @@ namespace Abschluss {
         crc2.stroke();
         crc2.fillStyle = "grey";
         crc2.fill();
-        
+
         for (let i: number = 0; i < nStars; i++) {
             let x: number = 220 + Math.random() * 270;
             let y: number = 0 + Math.random() * 80;
             let s: SternchenInfo = new SternchenInfo(x, y, "#555555");
             stars.push(s);
         }
+
+        drawBackButton();
         
         //Hintergrund speichern
         img = crc2.getImageData(0, 0, 800, 600);
-        
+
         animate();
     }
+
+    function handleBackClick(_event: MouseEvent): void {
+        let click: HTMLDivElement = <HTMLDivElement>_event.target;
+        click.style.backgroundColor = "#f53d82";
+
+        zurueck = click.id;
+
+        let divlistBack: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("Back");
+
+
+        for (let i: number = 0; i < divlistBack.length; i++) {
+            if (zurueck != divlistBack[i].id) {
+                alert("Back");
+                mix();
+            }
+
+        }
+    }
     
+    function drawBackButton(): void {
+
+            let back: HTMLDivElement = document.createElement("div");
+
+            back.style.backgroundColor = "#880044";
+            back.className = "Back";
+            back.id = "Back";
+            back.innerText = "zurueck";
+
+            document.body.appendChild(back);
+            back.addEventListener("click", handleBackClick);
+
+        }
+
     function animate(): void {
         crc2.clearRect(0, 0, 800, 600);
         crc2.putImageData(img, 0, 0);
-        
+
         for (let i: number = 0; i < stars.length; i++) {
-            
+
             let s: DrinkArray = stars[i];
             s.update();
-            }
+        }
 
 
         window.setTimeout(animate, 20);
     }
-    
+
 }

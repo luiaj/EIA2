@@ -1,5 +1,5 @@
 /*
-Aufgabe: Abschussarbeit
+Aufgabe: Abschlussarbeit
 Name: Julia Kaiser
 Matrikel: 256580
 Datum: 14.02.2018
@@ -13,6 +13,7 @@ var Abschluss;
     let currentDrink;
     let currentGlass;
     let mixer;
+    let zurueck;
     let nStars = 30;
     let img;
     let drinks = [];
@@ -198,9 +199,31 @@ var Abschluss;
             let s = new Abschluss.SternchenInfo(x, y, "#555555");
             stars.push(s);
         }
+        drawBackButton();
         //Hintergrund speichern
         img = Abschluss.crc2.getImageData(0, 0, 800, 600);
         animate();
+    }
+    function handleBackClick(_event) {
+        let click = _event.target;
+        click.style.backgroundColor = "#f53d82";
+        zurueck = click.id;
+        let divlistBack = document.getElementsByClassName("Back");
+        for (let i = 0; i < divlistBack.length; i++) {
+            if (zurueck != divlistBack[i].id) {
+                alert("Back");
+                mix();
+            }
+        }
+    }
+    function drawBackButton() {
+        let back = document.createElement("div");
+        back.style.backgroundColor = "#880044";
+        back.className = "Back";
+        back.id = "Back";
+        back.innerText = "zurueck";
+        document.body.appendChild(back);
+        back.addEventListener("click", handleBackClick);
     }
     function animate() {
         Abschluss.crc2.clearRect(0, 0, 800, 600);

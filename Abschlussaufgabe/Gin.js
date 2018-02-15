@@ -1,5 +1,5 @@
 /*
-Aufgabe: Abschussarbeit
+Aufgabe: Abschlussarbeit
 Name: Julia Kaiser
 Matrikel: 256580
 Datum: 14.02.2018
