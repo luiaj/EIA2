@@ -274,7 +274,7 @@ namespace Abschluss {
             stars.push(s);
         }
 
-        drawBackButton();
+        
         
         //Hintergrund speichern
         img = crc2.getImageData(0, 0, 800, 600);
@@ -282,37 +282,6 @@ namespace Abschluss {
         animate();
     }
 
-    function handleBackClick(_event: MouseEvent): void {
-        let click: HTMLDivElement = <HTMLDivElement>_event.target;
-        click.style.backgroundColor = "#f53d82";
-
-        zurueck = click.id;
-
-        let divlistBack: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("Back");
-
-
-        for (let i: number = 0; i < divlistBack.length; i++) {
-            if (zurueck != divlistBack[i].id) {
-                alert("Back");
-                mix();
-            }
-
-        }
-    }
-    
-    function drawBackButton(): void {
-
-            let back: HTMLDivElement = document.createElement("div");
-
-            back.style.backgroundColor = "#880044";
-            back.className = "Back";
-            back.id = "Back";
-            back.innerText = "zurueck";
-
-            document.body.appendChild(back);
-            back.addEventListener("click", handleBackClick);
-
-        }
 
     function animate(): void {
         crc2.clearRect(0, 0, 800, 600);
