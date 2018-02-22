@@ -194,10 +194,12 @@ var Abschluss;
         Abschluss.crc2.fillStyle = "grey";
         Abschluss.crc2.fill();
         for (let i = 0; i < nStars; i++) {
-            let x = 220 + Math.random() * 270;
+            let x = 223.5 + Math.random() * 275;
             let y = 0 + Math.random() * 80;
             let s = new Abschluss.SternchenInfo(x, y, "#555555");
             stars.push(s);
+            let pouringSound = document.getElementById("Pouring");
+            pouringSound.play();
         }
         //Hintergrund speichern
         img = Abschluss.crc2.getImageData(0, 0, 800, 600);

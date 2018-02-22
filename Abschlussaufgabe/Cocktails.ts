@@ -268,10 +268,13 @@ namespace Abschluss {
         crc2.fill();
 
         for (let i: number = 0; i < nStars; i++) {
-            let x: number = 220 + Math.random() * 270;
+            let x: number = 223.5 + Math.random() * 275;
             let y: number = 0 + Math.random() * 80;
             let s: SternchenInfo = new SternchenInfo(x, y, "#555555");
             stars.push(s);
+            
+            let pouringSound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("Pouring");
+            pouringSound.play();
         }
 
         
